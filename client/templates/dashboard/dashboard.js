@@ -3,7 +3,7 @@ Template.dashboard.rendered = function() {
 };
 
 Template.dashboard.helpers({
-	events: function() { 
+	events: function() {
 		return Events.find();
 	}
 });

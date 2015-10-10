@@ -4,5 +4,8 @@ HomeController = AppController.extend({
   },
   data: {
 	  events: Events.find({})
+  },
+  onAfterAction: function () {
+    Meta.setTitle('Home');
   }
 });
