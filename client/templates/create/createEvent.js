@@ -4,11 +4,11 @@ Template.createEvent.rendered = function() {
 
 Template.createEvent.events({
   'click #create-new-event': function () {
-	    alert(1);
 	    var usr_id = Meteor.userId();
-	    var title = $('#event-title').value;
-	    var location = $('#event-address').value;
-	    var date = $('#datepicker').value;
+	    var title = $('#event-title').val();
+	    var location = $('#event-address').val();
+	    var date = $('#datepicker').val();
 	    Meteor.call('createEvent', usr_id, title, date, location);
-  }
+		Meteor.defer(function() { Router.go('dashboard'); })  
+	}
 });
