@@ -12,6 +12,11 @@ Router.route('/create', {
   controller: 'CreateEventController'
 });
 
+Router.route('/create-tickets', {
+  name: 'createTickets',
+  controller: 'CreateTicketsController'
+});
+
 Router.plugin('ensureSignedIn', {
   only: ['dashboard', 'createEvent']
 });

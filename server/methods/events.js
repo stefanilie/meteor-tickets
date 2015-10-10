@@ -8,6 +8,7 @@ Meteor.methods({
       date: date,
       location: location,
     })
+    console.log(uniqueID);
     return uniqueID;
   },
   'editEvent': function() {

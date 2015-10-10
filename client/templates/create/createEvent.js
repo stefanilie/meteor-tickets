@@ -8,7 +8,14 @@ Template.createEvent.events({
 	    var title = $('#event-title').val();
 	    var location = $('#event-address').val();
 	    var date = $('#datepicker').val();
-	    Meteor.call('createEvent', usr_id, title, date, location);
-		Meteor.defer(function() { Router.go('dashboard'); })  
+	    if ( title === '' || location === '' || date === '' ){
+	    	swal("Oops...", "Please make sure there is no empty field!", "error");
+	    	}
+	    else{
+		    Meteor.call('createEvent', usr_id, title, date, location, function(err, results){
+		    	console.log(results['_str']);
+		    });
+			Meteor.defer(function() { Router.go('dashboard'); });
+		}
 	}
 });
