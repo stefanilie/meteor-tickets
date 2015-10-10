@@ -12,9 +12,8 @@ Meteor.methods({
     console.log("vaporware");
   },
   'createTicket': function(eventId, spots, price, end_date, capacity) {
-    var object = Events.find({
-      _id: new Meteor.Collection.ObjectID(eventId)
-    });
+    var eid = new Meteor.Collection.ObjectID(eventId.toString());
+    var object = Events.findOne(eid);
     var ticket = [];
     for (var i = 0; i < spots; i++) {
       ticket.push({
@@ -39,16 +38,13 @@ Meteor.methods({
     });
   },
   'buyTicket': function(eventId, ticketCount) {
-    var events = Events.findOne({
-      _id: new Meteor.Collection.ObjectID(eventId)
-    });
+    var eid = new Meteor.Collection.ObjectID(eventId.toString());
+    var events = Events.findOne(eid);
     var spots = events['ticket_type']['spots'];
     var ticket = events['ticket_type']['ticket'];
     var ticketUid = [];
-    console.log(spots);
     while (ticketCount > 0) {
-      console.log(ticket[parseInt(spots)-1].sold);
-      ticket[parseInt(spots)-1].sold = true;
+      ticket[parseInt(spots) - 1].sold = true;
       ticketCount--;
       spots--;
       console.log(ticket[spots].uid);
@@ -63,7 +59,7 @@ Meteor.methods({
       location: events['location'],
       ticket_type: {
         spots: spots,
-        price:  events['price'],
+        price: events['price'],
         end_date: events['end_date'],
         ticket: ticket,
         capacity: events['capacity']
@@ -71,7 +67,7 @@ Meteor.methods({
     });
     return ticketUid;
   },
-  'deleteEvent': function(eventId){
+  'deleteEvent': function(eventId) {
     Events.remove(new Meteor.Collection.ObjectID(eventId));
   }
 })
