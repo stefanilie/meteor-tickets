@@ -31,7 +31,8 @@ Meteor.methods({
         ticket: {
           uid: new Meteor.Collection.ObjectID(),
           sold: false
+        }
       }
-    })
+    });
   }
 })
