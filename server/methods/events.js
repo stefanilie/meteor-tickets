@@ -1,6 +1,5 @@
 Meteor.methods({
   'createEvent': function(usr_id, title, date, location) {
-    var uniqueID = new Meteor.Collection.ObjectID();
     Events.insert({
       _id: uniqueID,
       usr_id: usr_id,
@@ -8,7 +7,6 @@ Meteor.methods({
       date: date,
       location: location,
     })
-    return uniqueID;
   },
   'editEvent': function() {
     console.log("vaporware");
@@ -66,5 +64,8 @@ Meteor.methods({
         capacity: events['capacity']
       }
     });
+  },
+  'deleteEvent': function(eventId){
+    Events.remove(eventId);
   }
 })
