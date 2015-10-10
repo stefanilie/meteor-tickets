@@ -48,7 +48,7 @@ Meteor.methods({
       ticketCount--;
       spots--;
       console.log(ticket[spots].uid);
-      ticketUid.push(ticket[spots].uid);
+      ticketUid.push("http://localhost:3000/event/"+eventId+"/ticket/"+ticket[spots].uid.toHexString());
     }
     Events.update({
       _id: new Meteor.Collection.ObjectID(eventId)
