@@ -1,3 +1,26 @@
 <template name="createEvent">
+  <div class="template-create-event">
+    <div class="page-header">
+      <h1>Create Event</h1>
+    </div>
+      <form class="new-event-form input-group-lg">
+        <div class="input-group input-group-lg">
+          <span class="input-group-addon" id="sizing-addon1">Ttile</span>
+          <input type="text" id="event-title" class="form-control" aria-describedby="sizing-addon1">
+        </div>
+        <br>
+        <div class="input-group input-group-lg">
+          <span class="input-group-addon" id="sizing-addon1">Address</span>
+          <input type="text" id="event-address" class="form-control" aria-describedby="sizing-addon1">
+        </div>
+        <br>
+        <div class="input-group input-group-lg">
+          <span class="input-group-addon" id="sizing-addon1">Date</span>
+          <input type="text"  id="datepicker" class="form-control" aria-describedby="sizing-addon1">
+        </div>
+        <br>
+        <a href="{{pathFor route='createEvent'}}"><button type="button" id='#create-new-event' class="btn btn-lg btn-primary">Done</button></a>
+      </form>
 
+  </div>
 </template>
