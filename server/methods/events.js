@@ -1,7 +1,7 @@
 Meteor.methods({
   'createEvent': function(usr_id, title, date, location) {
     Events.insert({
-      _id: uniqueID,
+      _id: new Meteor.Collection.ObjectID(),
       usr_id: usr_id,
       title: title,
       date: date,
@@ -12,9 +12,10 @@ Meteor.methods({
     console.log("vaporware");
   },
   'createTicket': function(eventId, spots, price, end_date, capacity) {
-    var object = Events.findOne({
-      _id: eventId
+    var object = Events.find({
+      _id: new Meteor.Collection.ObjectID(eventId)
     });
+    console.log(object);
     var ticket = [];
     for (var i = 0; i < spots.length; i++) {
       ticket.push({
@@ -23,7 +24,7 @@ Meteor.methods({
       });
     }
     Events.update({
-      _id: eventId
+      _id: new Meteor.Collection.ObjectID(eventId)
     }, {
       usr_id: object['usr_id'],
       title: object['title'],
