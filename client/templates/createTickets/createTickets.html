@@ -1,0 +1,26 @@
+<template name="createTickets">
+  <div class="template-create-tickets">
+    <div class="page-header">
+      <h1>Create Tickets</h1>
+    </div>
+      <form class="new-event-form input-group-lg">
+        <div class="input-group input-group-lg">
+          <span class="input-group-addon" id="sizing-addon1">Spots</span>
+          <input type="text" id="ticket-spots" class="form-control" aria-describedby="sizing-addon1">
+        </div>
+        <br>
+        <div class="input-group input-group-lg">
+          <span class="input-group-addon" id="sizing-addon1">Price</span>
+          <input type="text" id="ticket-price" class="form-control" aria-describedby="sizing-addon1">
+        </div>
+        <br>
+        <div class="input-group input-group-lg">
+          <span class="input-group-addon" id="sizing-addon1">End Date</span>
+          <input type="date"  id="datepicker" class="form-control" aria-describedby="sizing-addon1">
+        </div>
+        <br>
+        <button type="button" id='create-new-ticket' class="btn btn-lg btn-primary">Done</button>
+      </form>
+
+  </div>
+</template>

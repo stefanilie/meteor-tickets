@@ -3,18 +3,7 @@ CreateEventController = AppController.extend({
     return this.subscribe('events');
   },
   data: {
-    typesSchema1: {
-                    typeTest: {
-                      type: Date,
-                      optional: true,
-                      autoform: {
-                        afFieldInput: {
-                          type: "date"
-                        }
-                      }
-                    }
-                  },
-    Events: Events.find({})
+    events: Events.find({})
   },
   onAfterAction: function () {
     Meta.setTitle('Create Event');

@@ -1,4 +1,4 @@
-DashboardController = AppController.extend({
+CreateTicketsController = AppController.extend({
   waitOn: function() {
     return this.subscribe('events');
   },
@@ -6,10 +6,9 @@ DashboardController = AppController.extend({
     events: Events.find({})
   },
   onAfterAction: function () {
-    Meta.setTitle('Dashboard');
+    Meta.setTitle('Create Event');
   }
 });
 
-DashboardController.events({
-
+CreateEventController.events({
 });

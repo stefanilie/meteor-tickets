@@ -3,10 +3,15 @@
     <div class="page-header">
       <h1>Dashboard</h1>
     </div>
-    {{#if event}}
+    {{#if events}}
     <ul class="list-group">
-      {{#each items}}
-        <li class="list-group-item">{{ name }} <span class="label label-default">{{ rating }}</span></li>
+      {{#each events}}
+        <li class="list-group-item">
+          <h2>{{ title }}</h2> 
+          <br>
+          <button class="btn btn-md btn-primary create-ticket-type" data="{{ _id.toHexString }}">Create Tickets</button>
+          <button class="btn btn-md btn-danger delete-ticket-type" data="{{ _id.toHexString }}">Delete</button>
+        </li>
       {{/each}}
     </ul>
     {{else}}
