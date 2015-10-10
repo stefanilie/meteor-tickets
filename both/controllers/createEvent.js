@@ -22,11 +22,4 @@ CreateEventController = AppController.extend({
 });
 
 CreateEventController.events({
-  'click #create-new-event': function () {
-    var usr_id = Meteor.userId();
-    var title = $('#event-title').value;
-    var location = $('#event-address').value;
-    var date = $('#datepicker').value;
-    Meteor.call('createEvent', usr_id, title, date, location);
-  }
 });
