@@ -11,8 +11,5 @@ Meteor.methods({
   },
   'editEvent': function(){
     console.log("vaporware");
-  },
-  'createTicket': function(eventId, ){
-
   }
 })
