@@ -18,6 +18,11 @@ Router.route('/create-tickets', {
   controller: 'CreateTicketsController'
 });
 
+Router.route('/print-ticket', {
+  name: 'printTicket',
+  controller: 'PrintTicketController'
+});
+
 Router.plugin('ensureSignedIn', {
   only: ['dashboard', 'createEvent']
 });
