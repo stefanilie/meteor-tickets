@@ -19,7 +19,8 @@ Meteor.methods({
     for (var i = 0; i < spots; i++) {
       ticket.push({
         "uid": new Meteor.Collection.ObjectID(),
-        "sold": false
+        "sold": false,
+        "checked": false
       });
     }
     Events.update({
@@ -77,6 +78,6 @@ Meteor.methods({
       console.log(res); // { filename: '/app/businesscard.pdf' }
       return res;
     });
-  } 
+  }
 
 })
