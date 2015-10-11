@@ -5,14 +5,17 @@
     </div>
 
     {{#each uids}}
-    <div class="pull-left">
-      <h2>{{title}}</h2>
-      <h3>{{location}}</h3>
-      <h4>{{date}}</h4>
-    </div>
-      <div class="pull-right">
-        {{> QrCode text=this }}
+    <div>
+      <div class="pull-left">
+        <h2>{{title}}</h2>
+        <h3>{{location}}</h3>
+        <h4>{{date}}</h4>
+        <button class="btn btn-md print-ticket">Save as PDF</button>
       </div>
+        <div class="pull-right">
+          {{> QrCode text=this }}
+        </div>
+    </div>
     {{/each}}
 
   </div>

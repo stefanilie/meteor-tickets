@@ -25,11 +25,13 @@ Template.printTicket.events({
 	Meteor.defer(function() { Router.go('createTickets'); });
 
 	},
-  'click .print-ticket': function () {
-
+  'click .print-ticket': function (event) {
+  		console.log($(event.target).parent().parent().html());
+  		var ticketContent = $(event.target).parent().parent();
+	  	
     },	
   'click .delete-ticket-type': function () {
-	var id = this._id.toHexString();
-	Meteor.call('deleteEvent', id);
+	// var id = this._id.toHexString();
+	// Meteor.call('deleteEvent', id);
   }
 });
