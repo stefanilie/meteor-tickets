@@ -5,7 +5,9 @@
     </div>
 
     {{#each uids}}
-    <div>
+    <img src="/images/cut-here.png" style="max-width: 100%;"/>
+    <div class="row">
+      <div class="col-xs-12">
       <div class="pull-left">
         <h2>{{title}}</h2>
         <h3>{{location}}</h3>
@@ -13,7 +15,9 @@
         <div class="pull-right">
           {{> QrCode text=this }}
         </div>
+      </div>
     </div> 
+    <br>
     {{/each}}
 
   </div>
