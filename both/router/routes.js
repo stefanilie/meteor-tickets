@@ -18,6 +18,11 @@ Router.route('/create-tickets', {
   controller: 'CreateTicketsController'
 });
 
+Router.route('/event/:_id/ticket/:eid', {
+  name: 'verify',
+  controller: "VerifyController"
+});
+
 Router.plugin('ensureSignedIn', {
   only: ['dashboard', 'createEvent']
 });

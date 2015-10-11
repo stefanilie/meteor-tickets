@@ -21,7 +21,7 @@ Template.dashboard.events({
 	Meteor.call('buyTicket', id, 1, function(err, results){
 		console.log(results);
 	});
-    },	
+    },
   'click .delete-ticket-type': function () {
 	var id = this._id.toHexString();
 	Meteor.call('deleteEvent', id);
