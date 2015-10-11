@@ -1,4 +1,6 @@
-Template.createTickets.rendered = function() {};
+Template.createTickets.rendered = function() {
+  var picker = new Pikaday({ field: document.getElementById('datepicker') });
+};
 
 Template.createTickets.events({
   'click #create-new-ticket': function() {
