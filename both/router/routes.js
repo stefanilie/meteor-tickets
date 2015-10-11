@@ -18,9 +18,9 @@ Router.route('/create-tickets', {
   controller: 'CreateTicketsController'
 });
 
-Router.route('/event/:_id/ticket/:eid', {
-  name: 'verify',
-  controller: "VerifyController"
+Router.route('/print-ticket', {
+  name: 'printTicket',
+  controller: 'PrintTicketController'
 });
 
 Router.plugin('ensureSignedIn', {

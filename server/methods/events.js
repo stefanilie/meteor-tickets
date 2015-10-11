@@ -1,3 +1,4 @@
+Meteor.require('html-pdf');
 Meteor.methods({
   'createEvent': function(usr_id, title, date, location) {
     Events.insert({
@@ -48,7 +49,7 @@ Meteor.methods({
       ticketCount--;
       spots--;
       console.log(ticket[spots].uid);
-      ticketUid.push(ticket[spots].uid);
+      ticketUid.push("http://localhost:3000/event/"+eventId+"/ticket/"+ticket[spots].uid.toHexString());
     }
     Events.update({
       _id: new Meteor.Collection.ObjectID(eventId)
@@ -69,5 +70,13 @@ Meteor.methods({
   },
   'deleteEvent': function(eventId) {
     Events.remove(new Meteor.Collection.ObjectID(eventId));
-  }
+  },
+  'createPDF': function(html) {
+    pdf.create(html, options).toFile('./ticket.pdf', function(err, res) {
+      if (err) return console.log(err);
+      console.log(res); // { filename: '/app/businesscard.pdf' }
+      return res;
+    });
+  } 
+
 })

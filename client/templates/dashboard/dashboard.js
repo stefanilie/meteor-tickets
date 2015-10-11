@@ -18,8 +18,16 @@ Template.dashboard.events({
 	},
   'click .print-ticket': function () {
 	var id = this._id.toHexString();
+	var title = this.title;
+	var date = this.date;
+	var location = this.location;
 	Meteor.call('buyTicket', id, 1, function(err, results){
 		console.log(results);
+		Session.set('printingUIDS', results);
+		Session.set('printingTitle', title);
+		Session.set('printingDate', date);
+		Session.set('printingLocation', location);
+		Meteor.defer(function() { Router.go('printTicket'); });
 	});
     },
   'click .delete-ticket-type': function () {
