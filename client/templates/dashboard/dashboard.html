@@ -9,9 +9,9 @@
         <li class="list-group-item">
           <h2>{{ title }}</h2> 
           <br>
-          <button class="btn btn-md btn-primary create-ticket-type" data="{{ _id.toHexString }}">Create Tickets</button>
+          <button class="btn btn-md btn-default create-ticket-type" data="{{ _id.toHexString }}">Create Tickets</button>
           {{#if ticket_type}}
-          <button class="btn btn-md print-ticket" data="{{ _id.toHexString }}">Print</button>
+          <button class="btn btn-md btn-default print-ticket" data="{{ _id.toHexString }}">Print</button>
           {{/if}}
           <button class="btn btn-md btn-danger delete-ticket-type" data="{{ _id.toHexString }}">Delete</button>
         </li>
@@ -20,7 +20,7 @@
     {{else}}
       {{> createEventSnippet }}
     {{/if}}
-    <a href="{{pathFor route='createEvent'}}"><button type="button" id='#create-new-event' class="btn btn-lg btn-primary">New</button></a>
+    <a href="{{pathFor route='createEvent'}}" type="button" id='#create-new-event' class="btn btn-lg btn-default">New</a>
 
   </div>
 </template>

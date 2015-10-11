@@ -29,5 +29,5 @@ Router.route('/print-ticket', {
 });
 
 Router.plugin('ensureSignedIn', {
-  only: ['dashboard', 'createEvent']
+  only: ['dashboard', 'createEvent','verify','printTicket','createTickets']
 });
