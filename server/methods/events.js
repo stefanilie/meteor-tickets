@@ -1,4 +1,3 @@
-Meteor.require('html-pdf');
 Meteor.methods({
   'createEvent': function(usr_id, title, date, location) {
     Events.insert({
@@ -70,13 +69,6 @@ Meteor.methods({
   },
   'deleteEvent': function(eventId) {
     Events.remove(new Meteor.Collection.ObjectID(eventId));
-  },
-  'createPDF': function(html) {
-    pdf.create(html, options).toFile('./ticket.pdf', function(err, res) {
-      if (err) return console.log(err);
-      console.log(res); // { filename: '/app/businesscard.pdf' }
-      return res;
-    });
-  } 
+  }
 
 })
