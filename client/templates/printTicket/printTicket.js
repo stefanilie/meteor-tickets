@@ -26,9 +26,11 @@ Template.printTicket.events({
 
 	},
   'click .print-ticket': function (event) {
-  		console.log($(event.target).parent().parent().html());
-  		var ticketContent = $(event.target).parent().parent();
-	  	
+  		console.log($(event.target).parent().parent().prop('outerHTML'));
+  		var ticketContent = $(event.target).parent().parent().prop('outerHTML');
+	  	var uri ="http://FreeHTMLtoPDF.com/?convert&html="+ticketContent;
+	  	console.log(uri);
+	  	window.open(uri, '_blank');
     },	
   'click .delete-ticket-type': function () {
 	// var id = this._id.toHexString();
