@@ -25,13 +25,6 @@ Template.printTicket.events({
 	Meteor.defer(function() { Router.go('createTickets'); });
 
 	},
-  'click .print-ticket': function (event) {
-  		console.log($(event.target).parent().parent().prop('outerHTML'));
-  		var ticketContent = $(event.target).parent().parent().prop('outerHTML');
-	  	var uri ="http://FreeHTMLtoPDF.com/?convert&html="+ticketContent;
-	  	console.log(uri);
-	  	window.open(uri, '_blank');
-    },	
   'click .delete-ticket-type': function () {
 	// var id = this._id.toHexString();
 	// Meteor.call('deleteEvent', id);
