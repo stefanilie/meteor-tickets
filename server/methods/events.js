@@ -42,31 +42,35 @@ Meteor.methods({
     var eid = new Meteor.Collection.ObjectID(eventId.toString());
     var events = Events.findOne(eid);
     var spots = events['ticket_type']['spots'];
-    var ticket = events['ticket_type']['ticket'];
     var ticketUid = [];
-    while (ticketCount > 0) {
-      ticket[parseInt(spots) - 1].sold = true;
-      ticketCount--;
-      spots--;
-      console.log(ticket[spots].uid);
-      ticketUid.push("http://localhost:3000/event/"+eventId+"/ticket/"+ticket[spots].uid.toHexString());
-    }
-    Events.update({
-      _id: new Meteor.Collection.ObjectID(eventId)
-    }, {
-      usr_id: events['usr_id'],
-      title: events['title'],
-      date: events['date'],
-      location: events['location'],
-      ticket_type: {
-        spots: spots,
-        price: events['price'],
-        end_date: events['end_date'],
-        ticket: ticket,
-        capacity: events['capacity']
+    if (ticketCount > spots) {
+      return ticketUid;
+    } else {
+      var ticket = events['ticket_type']['ticket'];
+      while (ticketCount > 0) {
+        ticket[parseInt(spots) - 1].sold = true;
+        ticketCount--;
+        spots--;
+        console.log(ticket[spots].uid);
+        ticketUid.push("http://localhost:3000/event/" + eventId + "/ticket/" + ticket[spots].uid.toHexString());
       }
-    });
-    return ticketUid;
+      Events.update({
+        _id: new Meteor.Collection.ObjectID(eventId)
+      }, {
+        usr_id: events['usr_id'],
+        title: events['title'],
+        date: events['date'],
+        location: events['location'],
+        ticket_type: {
+          spots: spots,
+          price: events['price'],
+          end_date: events['end_date'],
+          ticket: ticket,
+          capacity: events['capacity']
+        }
+      });
+      return ticketUid;
+    }
   },
   'deleteEvent': function(eventId) {
     Events.remove(new Meteor.Collection.ObjectID(eventId));
@@ -76,9 +80,8 @@ Meteor.methods({
     var events = Events.findOne(eid);
     var tickets = events['ticket_type']['ticket'];
     for (var i = tickets.length - 1; i >= 0; i--) {
-      if(tickets[i].uid._str === ticketUid)
-      {
-        if(tickets[i].checked === true) {
+      if (tickets[i].uid._str === ticketUid) {
+        if (tickets[i].checked === true) {
           return false;
         }
         tickets[i].checked = true;
