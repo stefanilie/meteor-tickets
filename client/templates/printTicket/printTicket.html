@@ -4,16 +4,19 @@
       <h1>Your tickets</h1>
     </div>
     {{#each uids}}
-    <div>
+    <img src="/images/cut-here.png" style="max-width: 100%;"/>
+    <div class="row">
+      <div class="col-xs-12">
       <div class="pull-left">
         <h2>{{title}}</h2>
         <h3>{{location}}</h3>
-        <h4>{{date}}</h4>
-      </div>
-      <div class="pull-right">
-        {{> QrCode text=this }}
+        <h4>{{date}}</h4>      </div>
+        <div class="pull-right">
+          {{> QrCode text=this }}
+        </div>
       </div>
     </div>
+    <br>
     {{else}}
     <div>
       <div class="pull-left">

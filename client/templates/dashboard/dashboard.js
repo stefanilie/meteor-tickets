@@ -21,7 +21,7 @@ Template.dashboard.events({
 	var title = this.title;
 	var date = this.date;
 	var location = this.location;
-	Meteor.call('buyTicket', id, 1, function(err, results){
+	Meteor.call('buyTicket', id, 3, function(err, results){
 		console.log(results);
 		Session.set('printingUIDS', results);
 		Session.set('printingTitle', title);
